@@ -6,7 +6,7 @@ function saveText() {
   let setArgs = {};
   setArgs[key] = value;
   chrome.storage.local.set(setArgs, function() {});
-  chrome.tabs.sendMessage(currentTab.id, {type: 'saveNote'});
+  chrome.runtime.sendMessage(currentTab.id);
 }
 
 chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
