@@ -1,12 +1,27 @@
 {
   "manifest_version": 2,
   "name": "Tab Tabs",
-  "version": "1.0.1",
+  "version": "1.0.2",
 
   "browser_action": {
     "browser_style": true,
     "default_title": "Tab Tabs",
     "default_popup": "index.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+
+  "background": {
+    "page": "background.html",
+    "persistent": false
   },
 
   "permissions": ["tabs", "storage", "unlimitedStorage"]
